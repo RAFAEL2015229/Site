@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Rafael ❤️ Sullhy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
+
     <style>
         :root {
-            --primary: #ff3366; 
+            --primary: #ff3366;
             --primary-glow: rgba(255, 51, 102, 0.6);
             --bg-dark: #2a0009;
             --text-light: #ffffff;
@@ -17,7 +18,8 @@
             --glass-border: rgba(255, 255, 255, 0.15);
         }
 
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
@@ -29,27 +31,57 @@
 
         /* --- ANIMAÇÕES GERAIS --- */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(0) scale(1); opacity: 0; }
-            20% { opacity: 1; }
-            100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh) scale(1.5);
+                opacity: 0;
+            }
         }
 
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px var(--primary-glow); transform: scale(1); }
-            50% { box-shadow: 0 0 35px var(--primary-glow), 0 0 15px #ffb3c6; transform: scale(1.05); }
-            100% { box-shadow: 0 0 15px var(--primary-glow); transform: scale(1); }
+            0% {
+                box-shadow: 0 0 15px var(--primary-glow);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 35px var(--primary-glow), 0 0 15px #ffb3c6;
+                transform: scale(1.05);
+            }
+
+            100% {
+                box-shadow: 0 0 15px var(--primary-glow);
+                transform: scale(1);
+            }
         }
 
         /* --- TELA DE INÍCIO (PRELOADER) --- */
         #preloader {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
             background: radial-gradient(circle, #4a0012 0%, #1a0005 100%);
             display: flex;
             flex-direction: column;
@@ -81,15 +113,27 @@
             text-transform: uppercase;
         }
 
-        #btn-entrar:active { transform: scale(0.95); }
+        #btn-entrar:active {
+            transform: scale(0.95);
+        }
 
         /* --- CORAÇÕES FLUTUANTES --- */
         #hearts-bg {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            pointer-events: none; z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
         }
-        .heart { position: absolute; font-size: 24px; bottom: -10vh; opacity: 0; }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            bottom: -10vh;
+            opacity: 0;
+        }
 
         /* --- CONTEÚDO PRINCIPAL --- */
         #main-content {
@@ -131,7 +175,7 @@
             max-width: 400px;
             margin: 0 auto;
             border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             background: var(--glass-bg);
             padding: 8px;
             backdrop-filter: blur(10px);
@@ -145,7 +189,7 @@
             background: rgba(0, 0, 0, 0.3);
             padding: 30px 0;
             margin: 40px 0;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .carousel-track {
@@ -161,15 +205,23 @@
             object-fit: cover;
             border-radius: 15px;
             border: 3px solid rgba(255, 179, 198, 0.5);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
             transition: transform 0.4s ease;
         }
 
-        .carousel-track img:hover { transform: scale(1.08) rotate(2deg); border-color: var(--primary); }
+        .carousel-track img:hover {
+            transform: scale(1.08) rotate(2deg);
+            border-color: var(--primary);
+        }
 
         @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-200px * 6 - 120px)); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-200px * 6 - 120px));
+            }
         }
 
         /* --- CARTA / TEXTO --- */
@@ -183,7 +235,7 @@
             backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
             margin: 20px auto 40px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
         .texto-personalizado h3 {
@@ -191,7 +243,7 @@
             font-size: 24px;
             margin-top: 0;
             margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .texto-personalizado p {
@@ -210,26 +262,31 @@
         #sessao-pedido h2 {
             font-size: 24px;
             margin-bottom: 35px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
         }
 
         #btn-sim {
             background: linear-gradient(45deg, #ff3366, #cc0033);
-            color: white; 
-            border: 2px solid #ffb3c6; 
+            color: white;
+            border: 2px solid #ffb3c6;
             padding: 20px 50px;
-            font-size: 22px; 
-            font-weight: 700; 
+            font-size: 22px;
+            font-weight: 700;
             border-radius: 50px;
-            cursor: pointer; 
+            cursor: pointer;
             animation: pulseGlow 2s infinite;
             transition: all 0.3s ease;
             text-transform: uppercase;
         }
 
-        #btn-sim:hover { background: linear-gradient(45deg, #ff6b8b, #ff3366); transform: scale(1.05); }
+        #btn-sim:hover {
+            background: linear-gradient(45deg, #ff6b8b, #ff3366);
+            transform: scale(1.05);
+        }
 
-        .hidden { display: none !important; }
+        .hidden {
+            display: none !important;
+        }
 
         /* --- MENSAGEM FINAL & TIMER GOURMET --- */
         #mensagem-final {
@@ -251,7 +308,7 @@
             border-radius: 12px;
             padding: 15px;
             min-width: 70px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(5px);
         }
 
@@ -291,6 +348,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div id="preloader">
@@ -304,9 +362,13 @@
         <div class="header">
             <h1>Rafael ❤️ Sullhy</h1>
             <p>Dê o play, role para baixo e sinta a nossa vibe...</p>
-            
+
             <div class="spotify-container">
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3HquVaSS0kA3SLbf7tVoJU?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe data-testid="embed-iframe" style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/3HquVaSS0kA3SLbf7tVoJU?utm_source=generator" width="100%"
+                    height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
             </div>
         </div>
 
@@ -330,9 +392,26 @@
         <div class="texto-personalizado">
             <h3>Para o meu amor,</h3>
             <p>
-                Este é o seu espaço, Rafael. Escreva aqui como os dias ficaram melhores desde que ela chegou, 
-                lembre de um detalhe que só vocês sabem, ou apenas diga o quanto ela é especial. 
-                Deixe o coração falar enquanto a música toca ao fundo.
+                Oi, meu amor!
+
+                Não sou muito bom com palavras kkk, Mas se você está lendo isso, é porque aceitou entrar no meu mundo doido. Preparei esse site e cada
+                detalhe desse momento para te mostrar o quanto você transformou os meus dias desde que chegou, tem sido os melhores dias passar junto 
+                com voce amor
+
+                Dizem que o amor é encontrar um lugar de paz no meio do caos, e é exatamente isso que você é para mim. E exatamente do jeitinho que eu sempre quis...
+                e o meu descanso e a minha melhor companhia. O travesseiro que te dei é para que, mesmo
+                quando eu não estiver por perto, você sinta esse conforto e saiba que meu pensamento está em você todas
+                as noites.
+
+                Mas eu não queria apenas o conforto. eu quero o compromisso. Queria que o mundo soubesse e quero falar, relembrar sempre que essa escolha que eu fiz 
+                e aonde eu decidi ficar pelo resto da minha vida.
+                Essas alianças não são apenas joias, são o símbolo de que eu escolho
+                você hoje, amanhã e em todos os dias que virão.
+
+                Obrigado por ser o amor da minha vida, por cada risada e por aceitar escrever essa história de amor
+                comigo.
+
+                Eu te amo muitooooooo, demaisss
             </p>
         </div>
 
@@ -344,7 +423,7 @@
         <div id="mensagem-final" class="hidden">
             <h1 style="color: #ffb3c6; text-shadow: 0 0 15px var(--primary-glow);">O melhor SIM da minha vida! ❤️</h1>
             <p style="font-size: 18px; margin-bottom: 10px;">O nosso "para sempre" começou há:</p>
-            
+
             <div id="timer-box">
                 <div class="time-slot"><span id="t-dias">00</span><small>Dias</small></div>
                 <div class="time-slot"><span id="t-horas">00</span><small>Horas</small></div>
@@ -366,7 +445,7 @@
         function iniciarSite() {
             const preloader = document.getElementById('preloader');
             preloader.style.opacity = '0';
-            
+
             setTimeout(() => {
                 preloader.style.display = 'none';
                 const mainContent = document.getElementById('main-content');
@@ -386,11 +465,11 @@
                 heart.style.left = Math.random() * 100 + 'vw';
                 heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
                 heart.style.animationDelay = (Math.random() * 5) + 's';
-                
+
                 // Variação de cores pros corações
                 const colors = ['rgba(255, 51, 102, 0.2)', 'rgba(255, 179, 198, 0.3)', 'rgba(204, 0, 51, 0.2)'];
                 heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-                
+
                 bg.appendChild(heart);
             }
         }
@@ -400,16 +479,16 @@
             document.getElementById('sessao-pedido').classList.add('hidden');
             const msgFinal = document.getElementById('mensagem-final');
             msgFinal.classList.remove('hidden');
-            
+
             // Rolar suavemente para o timer
             msgFinal.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
+
             // Inicia o Timer exato do clique
             startTime = new Date();
-            if(timerInterval) clearInterval(timerInterval);
+            if (timerInterval) clearInterval(timerInterval);
             timerInterval = setInterval(updateTimer, 1000);
             updateTimer(); // Chama imediato para não esperar 1s
-            
+
             dispararConfetes();
         }
 
@@ -438,18 +517,18 @@
 
             function randomInRange(min, max) { return Math.random() * (max - min) + min; }
 
-            var interval = setInterval(function() {
+            var interval = setInterval(function () {
                 var timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) { return clearInterval(interval); }
                 var particleCount = 60 * (timeLeft / duration);
-                
-                confetti(Object.assign({}, defaults, { 
-                    particleCount, 
+
+                confetti(Object.assign({}, defaults, {
+                    particleCount,
                     origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
                     colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033']
                 }));
-                confetti(Object.assign({}, defaults, { 
-                    particleCount, 
+                confetti(Object.assign({}, defaults, {
+                    particleCount,
                     origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
                     colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033']
                 }));
@@ -457,4 +536,5 @@
         }
     </script>
 </body>
+
 </html>
