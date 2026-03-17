@@ -18,7 +18,8 @@
             --glass-border: rgba(255, 255, 255, 0.15);
         }
 
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
@@ -30,118 +31,311 @@
 
         /* --- ANIMAÇÕES GERAIS --- */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(0) scale(1); opacity: 0; }
-            20% { opacity: 1; }
-            100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh) scale(1.5);
+                opacity: 0;
+            }
         }
 
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px var(--primary-glow); transform: scale(1); }
-            50% { box-shadow: 0 0 35px var(--primary-glow), 0 0 15px #ffb3c6; transform: scale(1.05); }
-            100% { box-shadow: 0 0 15px var(--primary-glow); transform: scale(1); }
+            0% {
+                box-shadow: 0 0 15px var(--primary-glow);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 35px var(--primary-glow), 0 0 15px #ffb3c6;
+                transform: scale(1.05);
+            }
+
+            100% {
+                box-shadow: 0 0 15px var(--primary-glow);
+                transform: scale(1);
+            }
         }
 
         /* --- TELA DE INÍCIO (PRELOADER) --- */
         #preloader {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
             background: radial-gradient(circle, #4a0012 0%, #1a0005 100%);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 9999; transition: opacity 1s ease, visibility 1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s;
         }
 
         .heart-icon-large {
-            font-size: 60px; margin-bottom: 20px; animation: pulseGlow 1.5s infinite; filter: drop-shadow(0 0 10px var(--primary));
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: pulseGlow 1.5s infinite;
+            filter: drop-shadow(0 0 10px var(--primary));
         }
 
         #btn-entrar {
-            padding: 16px 50px; font-size: 22px; font-weight: 700;
-            background: linear-gradient(45deg, #ff3366, #ff6b8b); color: white;
-            border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 8px 25px var(--primary-glow);
-            transition: all 0.3s ease; letter-spacing: 1px; text-transform: uppercase;
+            padding: 16px 50px;
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff3366, #ff6b8b);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px var(--primary-glow);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        #btn-entrar:active { transform: scale(0.95); }
+        #btn-entrar:active {
+            transform: scale(0.95);
+        }
 
         /* --- CORAÇÕES FLUTUANTES --- */
         #hearts-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
         }
-        .heart { position: absolute; font-size: 24px; bottom: -10vh; opacity: 0; }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            bottom: -10vh;
+            opacity: 0;
+        }
 
         /* --- CONTEÚDO PRINCIPAL --- */
         #main-content {
-            display: flex; flex-direction: column; align-items: center;
-            opacity: 0; visibility: hidden; transition: opacity 1.5s ease; width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.5s ease;
+            width: 100%;
         }
 
         .header {
-            text-align: center; padding: 50px 20px 20px; width: 100%; max-width: 600px; animation: fadeIn 1.5s ease forwards;
+            text-align: center;
+            padding: 50px 20px 20px;
+            width: 100%;
+            max-width: 600px;
+            animation: fadeIn 1.5s ease forwards;
         }
 
-        .header h1 { font-size: 38px; color: #ffb3c6; text-shadow: 0 0 20px rgba(255, 51, 102, 0.8); margin: 0 0 10px 0; font-weight: 700; }
-        .header p { font-size: 16px; color: #ffccd5; font-weight: 300; margin-bottom: 30px; letter-spacing: 1px; }
+        .header h1 {
+            font-size: 38px;
+            color: #ffb3c6;
+            text-shadow: 0 0 20px rgba(255, 51, 102, 0.8);
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #ffccd5;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
 
         .spotify-container {
-            width: 100%; max-width: 400px; margin: 0 auto; border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); background: var(--glass-bg); padding: 8px; backdrop-filter: blur(10px); border: 1px solid var(--glass-border);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            background: var(--glass-bg);
+            padding: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
         }
 
         /* --- CARROSSEL --- */
         .carousel-container {
-            width: 100%; overflow: hidden; background: rgba(0, 0, 0, 0.3); padding: 30px 0; margin: 40px 0; box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 0;
+            margin: 40px 0;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .carousel-track {
-            display: flex; gap: 20px; width: calc(200px * 12); animation: scroll 35s linear infinite;
+            display: flex;
+            gap: 20px;
+            width: calc(200px * 12);
+            animation: scroll 35s linear infinite;
         }
 
         .carousel-track img {
-            width: 200px; height: 280px; object-fit: cover; border-radius: 15px; border: 3px solid rgba(255, 179, 198, 0.5); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); transition: transform 0.4s ease;
+            width: 200px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid rgba(255, 179, 198, 0.5);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease;
         }
 
-        .carousel-track img:hover { transform: scale(1.08) rotate(2deg); border-color: var(--primary); }
+        .carousel-track img:hover {
+            transform: scale(1.08) rotate(2deg);
+            border-color: var(--primary);
+        }
 
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-200px * 6 - 120px)); } }
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-200px * 6 - 120px));
+            }
+        }
 
         /* --- CARTA / TEXTO --- */
         .texto-personalizado {
-            max-width: 85%; width: 500px; text-align: center; background: var(--glass-bg); padding: 35px 25px; border-radius: 20px; backdrop-filter: blur(12px); border: 1px solid var(--glass-border); margin: 20px auto 40px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            max-width: 85%;
+            width: 500px;
+            text-align: center;
+            background: var(--glass-bg);
+            padding: 35px 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            margin: 20px auto 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
-        .texto-personalizado h3 { color: #ffb3c6; font-size: 24px; margin-top: 0; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
-        .texto-personalizado p { line-height: 1.8; font-size: 16px; color: #fdfdfd; font-weight: 300; }
+        .texto-personalizado h3 {
+            color: #ffb3c6;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .texto-personalizado p {
+            line-height: 1.8;
+            font-size: 16px;
+            color: #fdfdfd;
+            font-weight: 300;
+        }
 
         /* --- SESSÃO DO PEDIDO --- */
-        #sessao-pedido { text-align: center; padding-bottom: 80px; }
-        #sessao-pedido h2 { font-size: 24px; margin-bottom: 35px; text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); }
-
-        #btn-sim {
-            background: linear-gradient(45deg, #ff3366, #cc0033); color: white; border: 2px solid #ffb3c6; padding: 20px 50px; font-size: 22px; font-weight: 700; border-radius: 50px; cursor: pointer; animation: pulseGlow 2s infinite; transition: all 0.3s ease; text-transform: uppercase;
+        #sessao-pedido {
+            text-align: center;
+            padding-bottom: 80px;
         }
 
-        #btn-sim:hover { background: linear-gradient(45deg, #ff6b8b, #ff3366); transform: scale(1.05); }
+        #sessao-pedido h2 {
+            font-size: 24px;
+            margin-bottom: 35px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+        }
 
-        .hidden { display: none !important; }
+        #btn-sim {
+            background: linear-gradient(45deg, #ff3366, #cc0033);
+            color: white;
+            border: 2px solid #ffb3c6;
+            padding: 20px 50px;
+            font-size: 22px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            animation: pulseGlow 2s infinite;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        #btn-sim:hover {
+            background: linear-gradient(45deg, #ff6b8b, #ff3366);
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none !important;
+        }
 
         /* --- MENSAGEM FINAL & TIMER --- */
-        #mensagem-final { text-align: center; padding-bottom: 80px; animation: fadeIn 1s ease-in; width: 100%; max-width: 600px; margin: 0 auto; }
-        #timer-box { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
-        .time-slot { background: var(--glass-bg); border: 1px solid var(--primary-glow); border-radius: 12px; padding: 15px; min-width: 70px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); backdrop-filter: blur(5px); }
-        .time-slot span { display: block; font-size: 32px; font-weight: 700; color: #ffb3c6; text-shadow: 0 0 10px rgba(255, 51, 102, 0.5); }
-        .time-slot small { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #ffccd5; }
+        #mensagem-final {
+            text-align: center;
+            padding-bottom: 80px;
+            animation: fadeIn 1s ease-in;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #timer-box {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .time-slot {
+            background: var(--glass-bg);
+            border: 1px solid var(--primary-glow);
+            border-radius: 12px;
+            padding: 15px;
+            min-width: 70px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .time-slot span {
+            display: block;
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffb3c6;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
+        }
+
+        .time-slot small {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffccd5;
+        }
 
         /* Animação especial para o texto de olhar para trás */
         .olhar-tras {
-            font-size: 28px; 
-            margin-top: 30px; 
-            color: #ffffff; 
-            text-shadow: 0 0 20px #ff3366, 0 0 40px #ff3366; 
+            font-size: 28px;
+            margin-top: 30px;
+            color: #ffffff;
+            text-shadow: 0 0 20px #ff3366, 0 0 40px #ff3366;
             font-weight: 700;
             animation: pulseGlow 2s infinite;
         }
@@ -177,10 +371,14 @@
                 <img src="image2.jpg.jpeg" alt="2">
                 <img src="image3.jpg.jpeg" alt="3">
                 <img src="image4.jpg.jpeg" alt="4">
+                <img src="image12.jpg.jpeg" alt="6">
                 <img src="image9.jpg.jpeg" alt="5">
-                <img src="image10.jpg.jpeg" alt="6">
-                <img src="image1.jpg.jpeg" alt="1">
                 <img src="image2.jpg.jpeg" alt="2">
+                <img src="image10.jpg.jpeg" alt="6">
+                <img src="image13.jpg.jpeg" alt="6">
+                <img src="image15.jpg.jpeg" alt="6">
+                <img src="image1.jpg.jpeg" alt="1">
+                <img src="image14.jpg.jpeg" alt="6">
                 <img src="image3.jpg.jpeg" alt="3">
                 <img src="image4.jpg.jpeg" alt="4">
                 <img src="image9.jpg.jpeg" alt="5">
@@ -193,13 +391,22 @@
             <p>
                 Oi, meu amor!<br><br>
 
-                Não sou muito bom com palavras kkk, Mas se você está lendo isso, é porque aceitou entrar no meu mundo doido. Preparei esse site e cada detalhe desse momento para te mostrar o quanto você transformou os meus dias desde que chegou, tem sido os melhores dias passar junto com voce amor.<br><br>
+                Não sou muito bom com palavras kkk, Mas se você está lendo isso, é porque aceitou entrar no meu mundo
+                doido. Preparei esse site e cada detalhe desse momento para te mostrar o quanto você transformou os meus
+                dias desde que chegou, tem sido os melhores dias passar junto com voce amor.<br><br>
 
-                Dizem que o amor é encontrar um lugar de paz no meio do caos, e é exatamente isso que você é para mim. E exatamente do jeitinho que eu sempre quis... e o meu descanso e a minha melhor companhia. O travesseiro que te dei é para que, mesmo quando eu não estiver por perto, você sinta esse conforto e saiba que meu pensamento está em você todas as noites.<br><br>
+                Dizem que o amor é encontrar um lugar de paz no meio do caos, e é exatamente isso que você é para mim. E
+                exatamente do jeitinho que eu sempre quis... e o meu descanso e a minha melhor companhia. O travesseiro
+                que te dei é para que, mesmo quando eu não estiver por perto, você sinta esse conforto e saiba que meu
+                pensamento está em você todas as noites.<br><br>
 
-                Mas eu não queria apenas o conforto. eu quero o compromisso. Queria que o mundo soubesse e quero falar, relembrar sempre que essa escolha que eu fiz e aonde eu decidi ficar pelo resto da minha vida. Essas alianças não são apenas joias, são o símbolo de que eu escolho você hoje, amanhã e em todos os dias que virão.<br><br>
+                Mas eu não queria apenas o conforto. eu quero o compromisso. Queria que o mundo soubesse e quero falar,
+                relembrar sempre que essa escolha que eu fiz e aonde eu decidi ficar pelo resto da minha vida. Essas
+                alianças não são apenas joias, são o símbolo de que eu escolho você hoje, amanhã e em todos os dias que
+                virão.<br><br>
 
-                Obrigado por ser o amor da minha vida, por cada risada e por aceitar escrever essa história de amor comigo.<br><br>
+                Obrigado por ser o amor da minha vida, por cada risada e por aceitar escrever essa história de amor
+                comigo.<br><br>
 
                 Eu te amo muitooooooo, demaissss ❤️
             </p>
@@ -211,7 +418,8 @@
         </div>
 
         <div id="mensagem-final" class="hidden">
-            <h1 style="color: #ffb3c6; text-shadow: 0 0 15px var(--primary-glow); font-size: 32px;">O melhor SIM da minha vida! ❤️</h1>
+            <h1 style="color: #ffb3c6; text-shadow: 0 0 15px var(--primary-glow); font-size: 32px;">O melhor SIM da
+                minha vida! ❤️</h1>
 
             <p class="olhar-tras">
                 Olha para trás agora... 💍
@@ -277,7 +485,7 @@
             startTime = new Date();
             if (timerInterval) clearInterval(timerInterval);
             timerInterval = setInterval(updateTimer, 1000);
-            updateTimer(); 
+            updateTimer();
 
             dispararConfetes();
         }
