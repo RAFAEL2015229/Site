@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Rafael ❤️ Sullhy</title>
+    <title>1 Mês ❤️ Rafael & Sullhy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -29,7 +29,6 @@
             scroll-behavior: smooth;
         }
 
-        /* --- ANIMAÇÕES GERAIS --- */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -39,22 +38,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-120vh) scale(1.5);
-                opacity: 0;
             }
         }
 
@@ -75,7 +58,7 @@
             }
         }
 
-        /* --- TELA DE INÍCIO (PRELOADER) --- */
+        /* --- PRELOADER --- */
         #preloader {
             position: fixed;
             top: 0;
@@ -99,8 +82,8 @@
         }
 
         #btn-entrar {
-            padding: 16px 50px;
-            font-size: 22px;
+            padding: 16px 40px;
+            font-size: 20px;
             font-weight: 700;
             background: linear-gradient(45deg, #ff3366, #ff6b8b);
             color: white;
@@ -109,7 +92,6 @@
             cursor: pointer;
             box-shadow: 0 8px 25px var(--primary-glow);
             transition: all 0.3s ease;
-            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
@@ -117,7 +99,7 @@
             transform: scale(0.95);
         }
 
-        /* --- CORAÇÕES FLUTUANTES --- */
+        /* --- CORAÇÕES --- */
         #hearts-bg {
             position: fixed;
             top: 0;
@@ -167,7 +149,6 @@
             color: #ffccd5;
             font-weight: 300;
             margin-bottom: 30px;
-            letter-spacing: 1px;
         }
 
         .spotify-container {
@@ -182,7 +163,7 @@
             border: 1px solid var(--glass-border);
         }
 
-        /* --- CARROSSEL --- */
+        /* --- CARROSSEL AUTOMÁTICO (TOPO) --- */
         .carousel-container {
             width: 100%;
             overflow: hidden;
@@ -196,7 +177,7 @@
             display: flex;
             gap: 20px;
             width: calc(200px * 12);
-            animation: scroll 35s linear infinite;
+            animation: scroll 20s linear infinite;
         }
 
         .carousel-track img {
@@ -206,12 +187,6 @@
             border-radius: 15px;
             border: 3px solid rgba(255, 179, 198, 0.5);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.4s ease;
-        }
-
-        .carousel-track img:hover {
-            transform: scale(1.08) rotate(2deg);
-            border-color: var(--primary);
         }
 
         @keyframes scroll {
@@ -243,7 +218,6 @@
             font-size: 24px;
             margin-top: 0;
             margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .texto-personalizado p {
@@ -253,42 +227,170 @@
             font-weight: 300;
         }
 
-        /* --- SESSÃO DO PEDIDO --- */
-        #sessao-pedido {
+        /* --- NOVA GALERIA INTERATIVA (SLIDER CLICÁVEL) --- */
+        .interactive-gallery-section {
             text-align: center;
-            padding-bottom: 80px;
+            margin: 20px 0 50px;
+            width: 100%;
+            max-width: 400px;
         }
 
-        #sessao-pedido h2 {
+        .interactive-gallery-section h3 {
+            color: #ffb3c6;
             font-size: 24px;
-            margin-bottom: 35px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        #btn-sim {
+        .slider-container {
+            position: relative;
+            width: 90%;
+            max-width: 350px;
+            margin: 0 auto;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .slider-container:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeSlide 0.5s;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0.4;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 51, 102, 0.8);
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 50%;
+            border: none;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background: #cc0033;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: -20px;
+        }
+
+        .next {
+            right: -20px;
+        }
+
+        .slide-counter {
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a000f;
+        }
+
+        /* --- SESSÃO INTERATIVA E BOTÃO --- */
+        #sessao-interativa {
+            text-align: center;
+            padding-bottom: 60px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #sessao-interativa h2 {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        #btn-comemorar {
             background: linear-gradient(45deg, #ff3366, #cc0033);
             color: white;
             border: 2px solid #ffb3c6;
-            padding: 20px 50px;
-            font-size: 22px;
+            padding: 18px 40px;
+            font-size: 20px;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
             animation: pulseGlow 2s infinite;
-            transition: all 0.3s ease;
             text-transform: uppercase;
-        }
-
-        #btn-sim:hover {
-            background: linear-gradient(45deg, #ff6b8b, #ff3366);
-            transform: scale(1.05);
         }
 
         .hidden {
             display: none !important;
         }
 
-        /* --- MENSAGEM FINAL & TIMER --- */
+        /* --- LISTA DE METAS E TIMER --- */
+        .bucket-list {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 179, 198, 0.3);
+        }
+
+        .bucket-list h3 {
+            color: #ffb3c6;
+            text-align: center;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .check-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            accent-color: #ff3366;
+            cursor: pointer;
+        }
+
         #mensagem-final {
             text-align: center;
             padding-bottom: 80px;
@@ -311,8 +413,6 @@
             border-radius: 12px;
             padding: 15px;
             min-width: 70px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
         }
 
         .time-slot span {
@@ -320,22 +420,19 @@
             font-size: 32px;
             font-weight: 700;
             color: #ffb3c6;
-            text-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
         }
 
         .time-slot small {
             font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
             color: #ffccd5;
         }
 
-        /* Animação especial para o texto de olhar para trás */
-        .olhar-tras {
+        .destaque-mes {
             font-size: 28px;
-            margin-top: 30px;
+            margin-top: 20px;
             color: #ffffff;
-            text-shadow: 0 0 20px #ff3366, 0 0 40px #ff3366;
+            text-shadow: 0 0 20px #ff3366;
             font-weight: 700;
             animation: pulseGlow 2s infinite;
         }
@@ -346,7 +443,7 @@
 
     <div id="preloader">
         <div class="heart-icon-large">❤️</div>
-        <button id="btn-entrar" onclick="iniciarSite()">Clique Aqui</button>
+        <button id="btn-entrar" onclick="iniciarSite()">Nosso 1º Mês</button>
     </div>
 
     <div id="hearts-bg"></div>
@@ -354,7 +451,7 @@
     <div id="main-content">
         <div class="header">
             <h1>Rafael ❤️ Sullhy</h1>
-            <p>Dê o play, role para baixo e sinta a nossa vibe...</p>
+            <p>O primeiro de muitos meses que vêm por aí...</p>
 
             <div class="spotify-container">
                 <iframe data-testid="embed-iframe" style="border-radius:12px"
@@ -367,65 +464,69 @@
 
         <div class="carousel-container">
             <div class="carousel-track">
-                <img src="image1.jpg.jpeg" alt="1">
-                <img src="image2.jpg.jpeg" alt="2">
-                <img src="image3.jpg.jpeg" alt="3">
-                <img src="image4.jpg.jpeg" alt="4">
-                <img src="image12.jpg.jpeg" alt="6">
-                <img src="image9.jpg.jpeg" alt="5">
-                <img src="image2.jpg.jpeg" alt="2">
-                <img src="image10.jpg.jpeg" alt="6">
-                <img src="image13.jpg.jpeg" alt="6">
-                <img src="image15.jpg.jpeg" alt="6">
-                <img src="image1.jpg.jpeg" alt="1">
-                <img src="image14.jpg.jpeg" alt="6">
-                <img src="image3.jpg.jpeg" alt="3">
-                <img src="image4.jpg.jpeg" alt="4">
-                <img src="image9.jpg.jpeg" alt="5">
-                <img src="image10.jpg.jpeg" alt="6">
+                <img src="image1.jpg.jpeg" alt="Foto">
+                <img src="image2.jpg.jpeg" alt="Foto">
+                <img src="image3.jpg.jpeg" alt="Foto">
+                <img src="image4.jpg.jpeg" alt="Foto">
+                <img src="image9.jpg.jpeg" alt="Foto">
+                <img src="image10.jpg.jpeg" alt="Foto">
+                <img src="image1.jpg.jpeg" alt="Foto">
+                <img src="image2.jpg.jpeg" alt="Foto">
+                <img src="image3.jpg.jpeg" alt="Foto">
+                <img src="image4.jpg.jpeg" alt="Foto">
+                <img src="image9.jpg.jpeg" alt="Foto">
+                <img src="image10.jpg.jpeg" alt="Foto">
             </div>
         </div>
 
         <div class="texto-personalizado">
-            <h3>Para o meu amor</h3>
+            <h3>Feliz 1 Mês, Amor!</h3>
             <p>
-                Oi, meu amor!<br><br>
+                Oi, minha princesa!<br><br>
 
-                Não sou muito bom com palavras kkk, Mas se você está lendo isso, é porque aceitou entrar no meu mundo
-                doido. Preparei esse site e cada detalhe desse momento para te mostrar o quanto você transformou os meus
-                dias desde que chegou, tem sido os melhores dias passar junto com voce amor.<br><br>
+                Há exatamente um mês, você disse aquele "sim" que mudou a minha vida. Olhando para trás, parece que foi
+                ontem, mas ao mesmo tempo parece que você sempre esteve aqui, fazendo os meus dias serem os melhores
+                possíveis.<br><br>
 
-                Dizem que o amor é encontrar um lugar de paz no meio do caos, e é exatamente isso que você é para mim. E
-                exatamente do jeitinho que eu sempre quis... e o meu descanso e a minha melhor companhia. O travesseiro
-                que te dei é para que, mesmo quando eu não estiver por perto, você sinta esse conforto e saiba que meu
-                pensamento está em você todas as noites.<br><br>
+                Aquele travesseiro com a nossa história e as nossas alianças foram só o começo. Eu escolhi você naquele
+                dia e continuo escolhendo todos os dias que acordo. Você é a minha paz no meio do caos, o meu descanso e
+                a companhia que eu sempre pedi a Deus.<br><br>
 
-                Mas eu não queria apenas o conforto. eu quero o compromisso. Queria que o mundo soubesse e quero falar,
-                relembrar sempre que essa escolha que eu fiz e aonde eu decidi ficar pelo resto da minha vida. Essas
-                alianças não são apenas joias, são o símbolo de que eu escolho você hoje, amanhã e em todos os dias que
-                virão.<br><br>
+                Esse é só o primeiro capítulo da história gigante que vamos escrever juntos. Obrigado por cada risada,
+                por cada momento e por ser exatamente do jeitinho que você é.<br><br>
 
-                Obrigado por ser o amor da minha vida, por cada risada e por aceitar escrever essa história de amor
-                comigo.<br><br>
-
-                Eu te amo muitooooooo, demaissss ❤️
+                Eu te amo muitooooooo, demaissss! Que venham os próximos meses, anos e uma vida inteira do seu lado. ❤️
             </p>
         </div>
 
-        <div id="sessao-pedido">
-            <h2>Aceita escrever o resto da vida comigo?</h2>
-            <button id="btn-sim" onclick="aceitarPedido()">Quer namorar comigo?</button>
+        <div class="interactive-gallery-section">
+            <h3>Nossos Novos Cliques 📸</h3>
+
+            <div class="slider-container">
+                <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
+
+                <img src="image16.jpg.jpeg" class="slide active" alt="Nossa foto 1">
+                <img src="image17.jpg.jpeg" class="slide" alt="Nossa foto 2">
+                <img src="image18.jpg.jpeg" class="slide" alt="Nossa foto 3">
+                <img src="image19.jpg.jpeg" class="slide" alt="Nossa foto 4">
+                <img src="image20.jpg.jpeg" class="slide" alt="Nossa foto 5">
+                <img src="image21.jpg.jpeg" class="slide" alt="Nossa foto 6">
+
+                <button class="next" onclick="mudarSlide(1)">&#10095;</button>
+
+                <div class="slide-counter" id="contador-slide">1 / 6</div>
+            </div>
+        </div>
+        <div id="sessao-interativa">
+            <h2>Pronta para continuar essa jornada?</h2>
+            <button id="btn-comemorar" onclick="celebrarMes()">Comemorar 1 Mês!</button>
         </div>
 
         <div id="mensagem-final" class="hidden">
-            <h1 style="color: #ffb3c6; text-shadow: 0 0 15px var(--primary-glow); font-size: 32px;">O melhor SIM da
-                minha vida! ❤️</h1>
+            <h1 style="color: #ffb3c6; text-shadow: 0 0 15px var(--primary-glow); font-size: 32px;">O primeiro de uma
+                vida inteira! ❤️</h1>
 
-            <p class="olhar-tras">
-                Olha para trás agora... 💍
-            </p>
-
-            <p style="font-size: 18px; margin-top: 40px; margin-bottom: 5px;">O nosso para sempre começou há:</p>
+            <p class="destaque-mes">A nossa contagem oficial:</p>
 
             <div id="timer-box">
                 <div class="time-slot"><span id="t-dias">00</span><small>Dias</small></div>
@@ -433,18 +534,49 @@
                 <div class="time-slot"><span id="t-mins">00</span><small>Min</small></div>
                 <div class="time-slot"><span id="t-segs">00</span><small>Seg</small></div>
             </div>
+
+            <div class="bucket-list">
+                <h3>Nossos Próximos Passos 🚀</h3>
+                <label class="check-item"><input type="checkbox" checked disabled> Completar 1 Mês de Namoro ❤️</label>
+                <label class="check-item"><input type="checkbox"> Assistir a um pôr do sol incrível juntos</label>
+                <label class="check-item"><input type="checkbox"> Fazer nossa primeira viagem grande</label>
+                <label class="check-item"><input type="checkbox"> Adotar mais um pet para fazer companhia? 🐕</label>
+                <label class="check-item"><input type="checkbox"> Completar 1 Ano de Namoro!</label>
+            </div>
         </div>
     </div>
 
     <script>
-        let startTime;
+        // === DATA DO NAMORO ===
+        const dataDoPedido = new Date('2026-03-09T00:00:00');
         let timerInterval;
 
-        // INICIAR SITE
+        // === CONTROLE DA NOVA GALERIA CLICÁVEL ===
+        let slideIndex = 0;
+
+        function mudarSlide(n) {
+            const slides = document.getElementsByClassName("slide");
+            const contador = document.getElementById("contador-slide");
+
+            // Esconde o slide atual
+            slides[slideIndex].classList.remove("active");
+
+            // Calcula o próximo slide
+            slideIndex += n;
+
+            // Faz o loop se passar do final ou voltar antes do zero
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+
+            // Mostra o novo slide e atualiza o número em texto
+            slides[slideIndex].classList.add("active");
+            contador.innerText = (slideIndex + 1) + " / " + slides.length;
+        }
+
+        // === INICIAR O SITE ===
         function iniciarSite() {
             const preloader = document.getElementById('preloader');
             preloader.style.opacity = '0';
-
             setTimeout(() => {
                 preloader.style.display = 'none';
                 const mainContent = document.getElementById('main-content');
@@ -454,46 +586,35 @@
             }, 800);
         }
 
-        // GERAR CORAÇÕES FLUTUANTES
         function gerarCoracoes() {
             const bg = document.getElementById('hearts-bg');
             for (let i = 0; i < 25; i++) {
                 let heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤️';
+                heart.classList.add('heart'); heart.innerHTML = '❤️';
                 heart.style.left = Math.random() * 100 + 'vw';
                 heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
                 heart.style.animationDelay = (Math.random() * 5) + 's';
-
                 const colors = ['rgba(255, 51, 102, 0.2)', 'rgba(255, 179, 198, 0.3)', 'rgba(204, 0, 51, 0.2)'];
                 heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-
                 bg.appendChild(heart);
             }
         }
 
-        // CLIQUE NO "SIM"
-        function aceitarPedido() {
-            document.getElementById('sessao-pedido').classList.add('hidden');
+        function celebrarMes() {
+            document.getElementById('sessao-interativa').classList.add('hidden');
             const msgFinal = document.getElementById('mensagem-final');
             msgFinal.classList.remove('hidden');
+            msgFinal.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-            // Rolar suavemente para o timer e a mensagem de olhar para trás
-            msgFinal.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            // Inicia o Timer exato do clique
-            startTime = new Date();
             if (timerInterval) clearInterval(timerInterval);
             timerInterval = setInterval(updateTimer, 1000);
             updateTimer();
-
             dispararConfetes();
         }
 
-        // ATUALIZAR TIMER
         function updateTimer() {
             const now = new Date();
-            const diff = now - startTime;
+            const diff = now - dataDoPedido;
 
             const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
             const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
@@ -506,12 +627,10 @@
             document.getElementById('t-segs').innerText = String(segundos).padStart(2, '0');
         }
 
-        // EFEITO DE CONFETES PREMIUM
         function dispararConfetes() {
             var duration = 5 * 1000;
             var animationEnd = Date.now() + duration;
             var defaults = { startVelocity: 35, spread: 360, ticks: 60, zIndex: 999 };
-
             function randomInRange(min, max) { return Math.random() * (max - min) + min; }
 
             var interval = setInterval(function () {
@@ -519,16 +638,8 @@
                 if (timeLeft <= 0) { return clearInterval(interval); }
                 var particleCount = 60 * (timeLeft / duration);
 
-                confetti(Object.assign({}, defaults, {
-                    particleCount,
-                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-                    colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033']
-                }));
-                confetti(Object.assign({}, defaults, {
-                    particleCount,
-                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-                    colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033']
-                }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033'] }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033'] }));
             }, 250);
         }
     </script>
