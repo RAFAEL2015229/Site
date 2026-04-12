@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>1 Mês ❤️ Rafael & Sullhy</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff3366">
+    <link rel="apple-touch-icon" href="assets/Img/image1.jpg.jpeg">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+    <div id="cofre-login">
+        <div class="cofre-content">
+            <div class="heart-icon-large" style="margin-bottom: 10px;">🔒</div>
+            <h2>Acesso Restrito</h2>
+            <p>Para entrar no nosso mundo, precisamos de uma chave.</p>
+            <input type="text" id="senha-input" placeholder="DD/MM/AAAA" maxlength="10">
+            <small>Dica: O dia em que tudo começou oficialmente.</small>
+            <br>
+            <button id="btn-entrar" onclick="verificarSenha()">Destrancar ❤️</button>
+            <p id="erro-senha" class="hidden" style="color: #ff6b8b; margin-top: 15px; font-weight: bold;">Senha
+                incorreta, meu amor. Tenta de novo!</p>
+        </div>
+    </div>
+
+    <div id="preloader" class="hidden">
+        <div class="heart-icon-large">❤️</div>
+        <button id="btn-entrar" onclick="iniciarSite()">Nosso 1º Mês</button>
+    </div>
+
+    <div id="hearts-bg"></div>
+
+    <div id="main-content" class="hidden">
+
+        <div id="cinema-overlay"></div>
+
+        <div class="header">
+            <h1 id="titulo-coracao">Rafael ❤️ Sullhy</h1>
+            <p>O primeiro de muitos meses que vêm por aí...</p>
+        </div>
+
+        <div class="midia-container">
+            <div class="video-section">
+                <h3>Nossa Música 🎵</h3>
+                <div class="video-wrapper">
+                    <iframe data-testid="embed-iframe" style="border-radius:8px; display: block;"
+                        src="https://open.spotify.com/embed/track/66rhnZizvTv2ufYpyHoWoW?utm_source=generator"
+                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h3>Minha Princesa! ❤️</h3>
+                <div class="video-wrapper">
+                    <video controls class="styled-video" style="height: 352px; background: #000;">
+                        <source src="assets/Videos/video2.MP4.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <img src="assets/Img/image1.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image2.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image3.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image4.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image9.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image10.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image1.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image2.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image3.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image4.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image9.jpg.jpeg" alt="Foto" loading="lazy">
+                <img src="assets/Img/image10.jpg.jpeg" alt="Foto" loading="lazy">
+            </div>
+        </div>
+
+        <div class="texto-personalizado">
+            <h3>Feliz 1 Mês, Amor!</h3>
+            <p>
+                Oi, minha princesa!<br><br>
+                Há exatamente um mês, você disse aquele "sim" que mudou a minha vida. Olhando para trás, parece que foi
+                ontem, mas ao mesmo tempo parece que você sempre esteve aqui, fazendo os meus dias serem os melhores
+                possíveis.<br><br>
+                Aquele travesseiro com a nossa história e as nossas alianças foram só o começo. Eu escolhi você naquele
+                dia e continuo escolhendo todos os dias que acordo. Você é a minha paz no meio do caos, o meu descanso e
+                a companhia que eu sempre pedi a Deus.<br><br>
+                Esse é só o primeiro capítulo da história gigante que vamos escrever juntos. Obrigado por cada risada,
+                por cada momento e por ser exatamente do jeitinho que você é.<br><br>
+                Eu te amo muitooooooo, demaissss! Que venham os próximos meses, anos e uma vida inteira do seu lado. ❤️
+            </p>
+        </div>
+
+        <div class="midia-container">
+            <div class="interactive-gallery-section">
+                <h3>Nossos Cliques 📸</h3>
+                <div class="slider-container">
+                    <button class="prev" onclick="mudarSlide(-1)">❮</button>
+
+                    <img src="assets/Img/image16.jpg.jpeg" class="slide active" alt="Nossa foto 1" loading="lazy">
+                    <img src="assets/Img/image17.jpg.jpeg" class="slide" alt="Nossa foto 2" loading="lazy">
+                    <img src="assets/Img/image18.jpg.jpeg" class="slide" alt="Nossa foto 3" loading="lazy">
+                    <img src="assets/Img/image19.jpg.jpeg" class="slide" alt="Nossa foto 4" loading="lazy">
+                    <img src="assets/Img/image20.jpg.jpeg" class="slide" alt="Nossa foto 5" loading="lazy">
+                    <img src="assets/Img/image21.jpg.jpeg" class="slide" alt="Nossa foto 6" loading="lazy">
+
+                    <button class="next" onclick="mudarSlide(1)">❯</button>
+                    <div class="slide-counter" id="contador-slide">1 / 6</div>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h3>Te Vivo! 🤍</h3>
+                <div class="video-wrapper">
+                    <video controls class="styled-video" style="height: 350px; background: #000;">
+                        <source src="assets/Videos/video1.MP4.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div id="sessao-interativa">
+            <h2>Pronta para continuar essa jornada?</h2>
+            <button id="btn-comemorar" onclick="celebrarMes()">Comemorar 1 Mês!</button>
+        </div>
+
+        <div id="mensagem-final" class="hidden">
+            <h1 style="color: #ffb3c6; text-shadow: 0 0 15px var(--primary-glow); font-size: 32px;">O primeiro de uma
+                vida inteira! ❤️</h1>
+            <p class="destaque-mes">A nossa contagem oficial:</p>
+
+            <div id="timer-box">
+                <div class="time-slot"><span id="t-dias">00</span><small>Dias</small></div>
+                <div class="time-slot"><span id="t-horas">00</span><small>Horas</small></div>
+                <div class="time-slot"><span id="t-mins">00</span><small>Min</small></div>
+                <div class="time-slot"><span id="t-segs">00</span><small>Seg</small></div>
+            </div>
+
+            <div class="bucket-list" id="lista-metas">
+                <h3>Nossos Próximos Passos 🚀</h3>
+                <label class="check-item"><input type="checkbox" data-id="1" checked disabled> Completar 1 Mês de Namoro
+                    ❤️</label>
+                <label class="check-item"><input type="checkbox" data-id="2"> Sair Juntos Mais vezes </label>
+                <label class="check-item"><input type="checkbox" data-id="3"> Assistir a um pôr do sol incrível
+                    juntos</label>
+                <label class="check-item"><input type="checkbox" data-id="4"> Fazer nossa primeira viagem grande</label>
+                <label class="check-item"><input type="checkbox" data-id="5"> Morar Juntos </label>
+                <label class="check-item"><input type="checkbox" data-id="6"> Completar 1 Ano de Namoro!</label>
+                <label class="check-item"><input type="checkbox" data-id="7"> Casar após completar 1 ano de
+                    namoro!</label>
+            </div>
+
+            <div class="caixa-mensagem"
+                style="background: var(--glass-bg); padding: 30px 20px; border-radius: 15px; border: 1px solid var(--glass-border); margin-top: 40px; text-align: center;">
+                <h3 style="color: #ffb3c6; margin-top: 0;">Cápsula do Tempo 💌</h3>
+                <p>Deixe uma mensagem aqui. Ela vai ficar guardada só para mim ler no nosso 2º mês.</p>
+                <textarea id="texto-mensagem" rows="4" placeholder="Escreva o que está sentindo..."
+                    style="width: 90%; background: rgba(0,0,0,0.3); border: 1px solid #ffb3c6; color: white; padding: 15px; border-radius: 10px; font-family: 'Poppins', sans-serif; resize: none; outline: none;"></textarea>
+                <br>
+                <button id="btn-enviar-msg" onclick="enviarMensagem()"
+                    style="margin-top: 15px; background: #ff3366; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s;">Enviar
+                    pro Rafa ❤️</button>
+                <p id="msg-status" class="hidden" style="margin-top: 10px; font-weight: bold;"></p>
+            </div>
+        </div>
+
+        <div id="easter-egg-modal" class="hidden-egg">
+            <div class="egg-content">
+                <span class="close-egg" onclick="fecharEgg()">×</span>
+                <h3>Surpresa! ❤️</h3>
+                <img src="assets/Img/foto-secreta.jpg" alt="Nossa foto secreta">
+                <p>Você achou o nosso segredo!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
