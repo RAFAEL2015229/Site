@@ -44,11 +44,14 @@ function iniciarSite() {
         gerarCoracoes();
         inicializarBucketList();
         configurarModoCinema();
+
+        // Inicializa a Raspadinha APÓS o site aparecer (para o tamanho da tela ficar certo)
+        setTimeout(inicializarRaspadinha, 500);
     }, 800);
 }
 
 /* ==========================================================================
-   EFEITO CORAÇÕES
+   EFEITO CORAÇÕES E CONFETES
    ========================================================================== */
 function gerarCoracoes() {
     const bg = document.getElementById('hearts-bg');
@@ -65,8 +68,29 @@ function gerarCoracoes() {
     }
 }
 
+function dispararConfetes() {
+    var duration = 5 * 1000;
+    var animationEnd = Date.now() + duration;
+    var defaults = { startVelocity: 35, spread: 360, ticks: 60, zIndex: 999 };
+
+    function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+
+    var interval = setInterval(function () {
+        var timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) { return clearInterval(interval); }
+        var particleCount = 60 * (timeLeft / duration);
+
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033'] }));
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033'] }));
+    }, 250);
+}
+
+function miniConfetes() {
+    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#ff3366', '#ffffff'] });
+}
+
 /* ==========================================================================
-   MODO CINEMA (BUG CORRIGIDO)
+   MODO CINEMA
    ========================================================================== */
 function configurarModoCinema() {
     const videos = document.querySelectorAll('video');
@@ -111,6 +135,62 @@ function mudarSlide(n) {
 }
 
 /* ==========================================================================
+   NOVIDADE 2º MÊS: SANFONA E RASPADINHA
+   ========================================================================== */
+function ativarSanfona(elementoClicado) {
+    const items = document.querySelectorAll('.accordion-item');
+    items.forEach(item => item.classList.remove('active'));
+    elementoClicado.classList.add('active');
+}
+
+function inicializarRaspadinha() {
+    const canvas = document.getElementById('scratch-pad');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#b3b3b3'; // Tinta da raspadinha
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = 'bold 24px Poppins';
+    ctx.fillStyle = '#666666';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('RASPE AQUI 💰', canvas.width / 2, canvas.height / 2);
+
+    let isDrawing = false;
+
+    // Adaptação para celular e PC
+    const startEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown';
+    const moveEvent = 'ontouchmove' in window ? 'touchmove' : 'mousemove';
+    const stopEvent = 'ontouchend' in window ? 'touchend' : 'mouseup';
+
+    canvas.addEventListener(startEvent, (e) => { isDrawing = true; raspar(e); });
+
+    // Evita a tela de subir/descer no celular enquanto raspa
+    canvas.addEventListener(moveEvent, (e) => {
+        if (!isDrawing) return;
+        e.preventDefault();
+        raspar(e);
+    }, { passive: false });
+
+    canvas.addEventListener(stopEvent, () => { isDrawing = false; });
+
+    function raspar(e) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+
+        ctx.globalCompositeOperation = 'destination-out'; // Borracha
+        ctx.beginPath();
+        ctx.arc(x, y, 22, 0, Math.PI * 2); // Raio da borracha
+        ctx.fill();
+    }
+}
+
+/* ==========================================================================
    BOTÃO COMEMORAR & TIMER
    ========================================================================== */
 function celebrarMes() {
@@ -123,14 +203,12 @@ function celebrarMes() {
     if (timerInterval) clearInterval(timerInterval);
     timerInterval = setInterval(updateTimer, 1000);
     updateTimer();
-
     dispararConfetes();
 }
 
 function updateTimer() {
     const now = new Date();
     const diff = now - dataDoPedido;
-
     const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
     const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const minutos = Math.floor((diff / 1000 / 60) % 60);
@@ -143,52 +221,21 @@ function updateTimer() {
 }
 
 /* ==========================================================================
-   CONFETES
-   ========================================================================== */
-function dispararConfetes() {
-    var duration = 5 * 1000;
-    var animationEnd = Date.now() + duration;
-    var defaults = { startVelocity: 35, spread: 360, ticks: 60, zIndex: 999 };
-
-    function randomInRange(min, max) { return Math.random() * (max - min) + min; }
-
-    var interval = setInterval(function () {
-        var timeLeft = animationEnd - Date.now();
-        if (timeLeft <= 0) { return clearInterval(interval); }
-        var particleCount = 60 * (timeLeft / duration);
-
-        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033'] }));
-        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors: ['#ff3366', '#ffffff', '#ffb3c6', '#cc0033'] }));
-    }, 250);
-}
-
-function miniConfetes() {
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#ff3366', '#ffffff'] });
-}
-
-/* ==========================================================================
-   LÓGICA DO LOCALSTORAGE (SALVAR A BUCKET LIST)
+   BUCKET LIST E GOOGLE SHEETS
    ========================================================================== */
 function inicializarBucketList() {
     const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
-
     checkboxes.forEach(box => {
         if (box.disabled) return;
-
         const id = box.getAttribute('data-id');
         const salvo = localStorage.getItem('sullhy_meta_' + id);
 
-        if (salvo === 'true') {
-            box.checked = true;
-            box.parentElement.classList.add('riscado');
-        }
+        if (salvo === 'true') { box.checked = true; box.parentElement.classList.add('riscado'); }
 
         box.addEventListener('change', function () {
             localStorage.setItem('sullhy_meta_' + id, this.checked);
-
             if (this.checked) {
-                this.parentElement.classList.add('riscado');
-                miniConfetes();
+                this.parentElement.classList.add('riscado'); miniConfetes();
             } else {
                 this.parentElement.classList.remove('riscado');
             }
@@ -196,9 +243,6 @@ function inicializarBucketList() {
     });
 }
 
-/* ==========================================================================
-   ENVIAR MENSAGEM PARA O GOOGLE SHEETS
-   ========================================================================== */
 function enviarMensagem() {
     const texto = document.getElementById('texto-mensagem').value;
     const status = document.getElementById('msg-status');
@@ -208,11 +252,6 @@ function enviarMensagem() {
         status.innerText = "Escreva alguma coisinha primeiro, amor!";
         status.style.color = "#ffb3c6";
         status.classList.remove('hidden');
-        return;
-    }
-
-    if (URL_GOOGLE_SCRIPT === "COLE_SEU_LINK_AQUI") {
-        alert("O Rafael precisa colar o link do Google Script no código!");
         return;
     }
 
