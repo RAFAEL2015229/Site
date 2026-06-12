@@ -47,7 +47,7 @@ html {
     }
 }
 
-/* === COFRE DE LOGIN === */
+/* === Cofre e Preloader === */
 #cofre-login {
     position: fixed;
     top: 0;
@@ -105,7 +105,6 @@ html {
     margin-bottom: 20px;
 }
 
-/* === PRELOADER & CORAÇÕES === */
 #preloader {
     position: fixed;
     top: 0;
@@ -163,57 +162,180 @@ html {
     opacity: 0;
 }
 
-/* === CABEÇALHO === */
+/* === Hero 3D Section === */
+#hero-3d-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+#bg-personalizado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    pointer-events: none;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-text h1 {
+    font-size: 45px;
+    color: #ffb3c6;
+    text-shadow: 0 0 25px rgba(255, 51, 102, 1);
+    margin: 0 0 10px 0;
+}
+
+.dica-interacao {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ffccd5;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: 1px solid var(--primary-glow);
+    animation: pulseGlow 2s infinite;
+}
+
+/* === Scroll Reveal Animations === */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === GALERIA CASCATA === */
+.grid-cascata {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px 0;
+}
+
+@media (min-width: 768px) {
+    .grid-cascata {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.foto-cascata {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.foto-cascata.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.foto-cascata img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 179, 198, 0.2);
+}
+
+/* === Nike Video Section === */
+.nike-video-section {
+    position: relative;
+    width: 100vw;
+    height: 70vh;
+    left: calc(-50vw + 50%);
+    overflow: hidden;
+    margin: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+}
+
+.nike-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+.nike-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #2a0009 0%, rgba(0, 0, 0, 0.4) 50%, #2a0009 100%);
+    z-index: 1;
+}
+
+.nike-video-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+}
+
+.nike-video-content h2 {
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+    margin: 0 0 10px 0;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
+}
+
+.nike-video-content p {
+    font-size: 18px;
+    color: #ffccd5;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* === Layout e Midias === */
 #main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: fadeIn 1.5s ease forwards;
     width: 100%;
     position: relative;
+    overflow-x: hidden;
 }
 
-.header {
-    text-align: center;
-    padding: 50px 20px 20px;
-    width: 100%;
-    max-width: 600px;
-}
-
-.header h1 {
-    font-size: 38px;
-    color: #ffb3c6;
-    text-shadow: 0 0 20px rgba(255, 51, 102, 0.8);
-    margin: 0 0 10px 0;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.header h1:hover {
-    transform: scale(1.05);
-}
-
-.header p {
-    font-size: 16px;
-    color: #ffccd5;
-    font-weight: 300;
-    margin-bottom: 30px;
-}
-
-.spotify-container {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-    background: var(--glass-bg);
-    padding: 8px;
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-}
-
-/* === CARROSSEL & TEXTO === */
 .carousel-container {
     width: 100%;
     overflow: hidden;
@@ -282,7 +404,6 @@ html {
     font-weight: 300;
 }
 
-/* === MÍDIA LADO A LADO E MODO CINEMA === */
 #cinema-overlay {
     position: fixed;
     top: 0;
@@ -294,6 +415,7 @@ html {
     display: none;
     transition: 0.5s;
     backdrop-filter: blur(5px);
+    cursor: pointer;
 }
 
 .video-focus {
@@ -446,7 +568,7 @@ html {
     display: block;
 }
 
-/* === NOVIDADES 2º MÊS: POLAROIDS E SANFONA === */
+/* === Polaroids e Sanfona === */
 .polaroid-board {
     display: flex;
     flex-wrap: wrap;
@@ -546,7 +668,7 @@ html {
     }
 }
 
-/* === NOVIDADES 2º MÊS: RASPADINHA === */
+/* === Raspadinha Background Personalizado === */
 .raspadinha-wrapper {
     position: relative;
     width: 300px;
@@ -555,7 +677,7 @@ html {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    background: #fff;
+    background: #000;
 }
 
 .raspadinha-premio {
@@ -564,20 +686,30 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.raspadinha-conteudo-premio {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #4a000f;
-    background: repeating-linear-gradient(45deg, #ffe6eb, #ffe6eb 10px, #ffffff 10px, #ffffff 20px);
 }
 
-.raspadinha-premio h2 {
+.raspadinha-conteudo-premio h2 {
+    color: #ffb3c6;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
     margin: 0 0 5px 0;
     font-size: 26px;
 }
 
-.raspadinha-premio p {
+.raspadinha-conteudo-premio p {
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
     margin: 0;
     font-size: 14px;
     font-weight: bold;
@@ -591,9 +723,10 @@ html {
     height: 100%;
     cursor: pointer;
     z-index: 2;
+    border-radius: 15px;
 }
 
-/* === SESSÃO FINAL E MENSAGENS === */
+/* === Sessões Finais === */
 #sessao-interativa {
     text-align: center;
     padding-bottom: 60px;
@@ -622,7 +755,6 @@ html {
 #mensagem-final {
     text-align: center;
     padding-bottom: 80px;
-    animation: fadeIn 1s ease-in;
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -754,7 +886,6 @@ html {
     background: #cc0033;
 }
 
-/* === EASTER EGG === */
 .hidden-egg {
     display: none;
     position: fixed;
