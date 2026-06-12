@@ -117,29 +117,32 @@
         </div>
 
         <!-- ====================================================================== -->
-        <!-- NOVA GALERIA: CASCATA COM 8 FOTOS APARECENDO POUCO A POUCO NO SCROLL -->
+        <!-- NOVA GALERIA: ROLAGEM UM POR UM (ZIG-ZAG INTERATIVO) -->
         <!-- ====================================================================== -->
         <div class="midia-container">
-            <div class="interactive-gallery-section" style="max-width: 100%; width: 100%;">
-                <h3>Momentos Inesquecíveis ✨</h3>
-                <p style="font-size: 14px; margin-bottom: 5px;">Cada pedacinho da nossa história</p>
+            <div class="interactive-gallery-section"
+                style="max-width: 100%; width: 100%; background: transparent; border: none; box-shadow: none; padding: 0;">
+                <h3 style="font-size: 28px; text-shadow: 0 0 15px var(--primary-glow); margin-bottom: 40px;">Nossos
+                    Momentos ✨</h3>
+                <p style="font-size: 16px; margin-bottom: 30px; color: #ffccd5;">Role devagar para reviver cada
+                    instante...</p>
 
-                <div class="grid-cascata">
-                    <div class="foto-cascata"><img src="Site/assets/Img/image39.jpeg" alt="Foto Nova 1"
+                <div class="scroll-sequence">
+                    <div class="foto-scroll left"><img src="Site/assets/Img/image39.jpeg" alt="Foto Nova 1"
                             loading="lazy"></div>
-                    <div class="foto-cascata"><img src="Site/assets/Img/image40.jpeg" alt="Foto Nova 2"
+                    <div class="foto-scroll right"><img src="Site/assets/Img/image40.jpeg" alt="Foto Nova 2"
                             loading="lazy"></div>
-                    <div class="foto-cascata"><img src="Site/assets/Img/image41.jpeg" alt="Foto Nova 3"
+                    <div class="foto-scroll left"><img src="Site/assets/Img/image41.jpeg" alt="Foto Nova 3"
                             loading="lazy"></div>
-                    <div class="foto-cascata"><img src="Site/assets/Img/image42.jpeg" alt="Foto Nova 4" 
+                    <div class="foto-scroll right"><img src="Site/assets/Img/image42.jpeg" alt="Foto Nova 4"
                             loading="lazy"></div>
-                    <div class="foto-cascata"><img src="Site/assets/Img/image43.jpeg" alt="Foto Nova 5"
+                    <div class="foto-scroll left"><img src="Site/assets/Img/image43.jpeg" alt="Foto Nova 5"
                             loading="lazy"></div>
-                    <div class="foto-cascata"><img src="Site/assets/Img/image44.jpeg" alt="Foto Nova 6"
+                    <div class="foto-scroll right"><img src="Site/assets/Img/image44.jpeg" alt="Foto Nova 6"
                             loading="lazy"></div>
-                    <div class="foto-cascata"><img src="Site/assets/Img/image45.jpeg" alt="Foto Nova 7"
+                    <div class="foto-scroll left"><img src="Site/assets/Img/image45.jpeg" alt="Foto Nova 7"
                             loading="lazy"></div>
-                    <div class="foto-cascata"><img src="Site/assets/Img/image46.jpeg" alt="Foto Nova 8"
+                    <div class="foto-scroll right"><img src="Site/assets/Img/image46.jpeg" alt="Foto Nova 8"
                             loading="lazy"></div>
                 </div>
             </div>
@@ -189,7 +192,7 @@
                 <p style="font-size: 14px; margin-bottom: 15px;">Passe o dedo para revelar a surpresa!</p>
                 <div class="raspadinha-wrapper">
                     <div class="raspadinha-premio">
-                        <img src="Site/assets/Img/image38.jpeg" alt="Surpresa!"
+                        <img src="Site/assets/Img/image2.jpg.jpeg" alt="Surpresa!"
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
                     </div>
                     <canvas id="scratch-pad" width="300" height="150"></canvas>

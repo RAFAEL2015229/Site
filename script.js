@@ -60,22 +60,20 @@ function inicializarScrollReveal() {
         observer.observe(reveal);
     });
 
-    // Observer da Nova Galeria em Cascata
-    const fotosCascata = document.querySelectorAll('.foto-cascata');
-    if (fotosCascata.length > 0) {
-        const observerCascata = new IntersectionObserver((entries) => {
+    // NOVO: Observer dedicado APENAS para a Galeria Zig-Zag "Passo a Passo"
+    const fotosScroll = document.querySelectorAll('.foto-scroll');
+    if (fotosScroll.length > 0) {
+        const observerZigZag = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                // Quando 30% da foto entrar na tela pelo scroll, ela anima e aparece!
                 if (entry.isIntersecting) {
-                    const index = Array.from(fotosCascata).indexOf(entry.target);
-                    setTimeout(() => {
-                        entry.target.classList.add('show');
-                    }, (index % 4) * 150); // Atraso em cascata
-                    observerCascata.unobserve(entry.target);
+                    entry.target.classList.add('show');
+                    observerZigZag.unobserve(entry.target); // Para a animação não repetir ao subir a tela
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.3 }); // O threshold de 0.3 exige que você realmente role para a foto aparecer
 
-        fotosCascata.forEach(foto => observerCascata.observe(foto));
+        fotosScroll.forEach(foto => observerZigZag.observe(foto));
     }
 }
 
