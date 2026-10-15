@@ -38,9 +38,6 @@ function iniciarSite() {
         initParticleHeart3D();
         inicializarScrollReveal();
 
-        // NOVO: INICIA A NOVA GALERIA CILÍNDRICA 3D
-        initCoverflow3D();
-
         setTimeout(inicializarRaspadinha, 500);
     }, 800);
 }
@@ -183,57 +180,6 @@ function initParticleHeart3D() {
         camera.updateProjectionMatrix();
         renderer.setSize(container.clientWidth, container.clientHeight);
     });
-}
-
-/* ==========================================================================
-   NOVO: CARROSSEL CILÍNDRICO 3D (COVERFLOW)
-   ========================================================================== */
-function initCoverflow3D() {
-    const container = document.getElementById('coverflow-3d');
-    if (!container) return;
-
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    // Ações para o Mouse (PC)
-    container.addEventListener('mousedown', (e) => {
-        isDown = true;
-        container.classList.add('active');
-        startX = e.pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-    });
-    container.addEventListener('mouseleave', () => {
-        isDown = false;
-        container.classList.remove('active');
-    });
-    container.addEventListener('mouseup', () => {
-        isDown = false;
-        container.classList.remove('active');
-    });
-    container.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 2; // Velocidade do arraste
-        container.scrollLeft = scrollLeft - walk;
-    });
-
-    // Ações para o Dedo (Celular/Touch)
-    container.addEventListener('touchstart', (e) => {
-        isDown = true;
-        startX = e.touches[0].pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-    }, { passive: true });
-    container.addEventListener('touchend', () => {
-        isDown = false;
-    });
-    container.addEventListener('touchmove', (e) => {
-        if (!isDown) return;
-        const x = e.touches[0].pageX - container.offsetLeft;
-        const walk = (x - startX) * 2;
-        container.scrollLeft = scrollLeft - walk;
-    }, { passive: true });
 }
 
 function gerarCoracoes() {
@@ -465,7 +411,7 @@ function enviarMensagem() {
 }
 
 let cliquesCoracao = 0;
-let resetCliqueTimer;
+let resetCliqueTimer;   
 document.getElementById('titulo-coracao').addEventListener('click', function () {
     cliquesCoracao++;
     clearTimeout(resetCliqueTimer);
